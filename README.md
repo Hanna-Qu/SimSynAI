@@ -1,4 +1,4 @@
-﻿# SimSynAI - 鍩轰簬澶ц瑷€妯″瀷鐨勬櫤鑳藉寲浠跨湡骞冲彴
+﻿# SimSynAI - 基于大语言模型的智能化仿真平台
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI/CD](https://github.com/Hanna-Qu/SimSynAI/workflows/CI/CD%20Pipeline/badge.svg)](https://github.com/Hanna-Qu/SimSynAI/actions)
@@ -6,55 +6,55 @@
 [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/Hanna-Qu/SimSynAI/releases)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-SimSynAI 鏄竴涓泦鎴愪簡澶氱澶ц瑷€妯″瀷鐨勬櫤鑳藉寲浠跨湡骞冲彴锛屾敮鎸佹櫤鑳藉璇濄€佷豢鐪熷缓妯°€佹暟鎹彲瑙嗗寲绛夊姛鑳姐€?
+SimSynAI 是一个集成了多种大语言模型的智能化仿真平台，支持智能对话、仿真建模、数据可视化等功能。
 
-## 鉁?涓昏鐗规€?
+## ✨ 主要特性
 
-- 馃 **澶歀LM妯″瀷闆嗘垚** - 鏀寔OpenAI銆丆laude銆丟emini銆佸崈闂€丏eepSeek绛?
-- 馃攼 **瀹夊叏鐨勭敤鎴风郴缁?* - JWT璁よ瘉銆丄PI瀵嗛挜鍔犲瘑瀛樺偍
-- 馃挰 **鏅鸿兘瀵硅瘽** - 瀹炴椂AI瀵硅瘽銆佸巻鍙茶褰曠鐞?
-- 馃敩 **浠跨湡瀹為獙** - 鍙鍖栧缓妯°€佸弬鏁伴厤缃€佺粨鏋滃垎鏋?
-- 馃搳 **鏁版嵁鍙鍖?* - 澶氱鍥捐〃绫诲瀷銆佷氦浜掑紡灞曠ず
-- 馃寪 **鍥介檯鍖栨敮鎸?* - 涓嫳鏂囧弻璇晫闈?
-- 馃摫 **鍝嶅簲寮忚璁?* - 瀹岀編閫傞厤妗岄潰鍜岀Щ鍔ㄨ澶?
-- 馃惓 **瀹瑰櫒鍖栭儴缃?* - 寮€绠卞嵆鐢ㄧ殑Docker瑙ｅ喅鏂规
+- 🧠 **多LLM模型集成** - 支持OpenAI、Claude、Gemini、千问、DeepSeek等
+- 🔐 **安全的用户系统** - JWT认证、API密钥加密存储
+- 💬 **智能对话** - 实时AI对话、历史记录管理
+- 🧪 **仿真实验** - 可视化建模、参数配置、结果分析
+- 📊 **数据可视化** - 多种图表类型、交互式展示
+- 🌐 **国际化支持** - 中英文双语界面
+- 📱 **响应式设计** - 完美适配桌面和移动设备
+- 🐳 **容器化部署** - 开箱即用的Docker解决方案
 
-## 馃殌 蹇€熷紑濮?
+## 🚀 快速开始
 
-### 鐜瑕佹眰
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (鐢熶骇閮ㄧ讲)
+### 环境要求
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (生产部署)
 - Git
 
-### 鏂瑰紡1锛欴ocker瀹瑰櫒鍖栬繍琛岋紙鎺ㄨ崘鐢ㄤ簬鐢熶骇锛?
+### 方式1：Docker容器化运行（推荐用于生产）
 
 ```bash
-# 1. 鍏嬮殕椤圭洰
+# 1. 克隆项目
 git clone https://github.com/Hanna-Qu/SimSynAI.git
 cd SimSynAI
 
-# 2. 鍚姩鎵€鏈夋湇鍔?
+# 2. 启动所有服务
 docker compose up -d
 
-# 3. 绛夊緟鏈嶅姟鍚姩瀹屾垚 (绾?-2鍒嗛挓)
+# 3. 等待服务启动完成 (约1-2分钟)
 docker compose ps
 
-# 4. 璁块棶搴旂敤
-# 鍓嶇: http://localhost:3000
-# 鍚庣API: http://localhost:8000
-# API鏂囨。: http://localhost:8000/api/v1/docs
+# 4. 访问应用
+# 前端: http://localhost:3000
+# 后端API: http://localhost:8000
+# API文档: http://localhost:8000/api/v1/docs
 ```
 
-### 鏂瑰紡2锛氭湰鍦板紑鍙戠幆澧冿紙鎺ㄨ崘鐢ㄤ簬寮€鍙戯級
+### 方式2：本地开发环境（推荐用于开发）
 
-浣跨敤conda铏氭嫙鐜杩涜鏈湴寮€鍙戯紝鑾峰緱鏇村ソ鐨勫紑鍙戜綋楠岋細
+使用conda虚拟环境进行本地开发，获得更好的开发体验：
 
-#### 蹇€熷惎鍔?
+#### 快速启动
 ```bash
-# 1. 鍏嬮殕椤圭洰
+# 1. 克隆项目
 git clone https://github.com/Hanna-Qu/SimSynAI.git
 cd SimSynAI
 
-# 2. 鍒濆鍖栧紑鍙戠幆澧冿紙棣栨杩愯锛?
+# 2. 初始化开发环境（首次运行）
 # Windows
 .\scripts\dev-start.ps1 init
 
@@ -62,7 +62,7 @@ cd SimSynAI
 chmod +x scripts/dev-start.sh
 ./scripts/dev-start.sh init
 
-# 3. 鍚姩寮€鍙戞湇鍔?
+# 3. 启动开发服务
 # Windows
 .\scripts\dev-start.ps1 full
 
@@ -70,103 +70,103 @@ chmod +x scripts/dev-start.sh
 ./scripts/dev-start.sh full
 ```
 
-#### 鍒嗗埆鍚姩鏈嶅姟
+#### 分别启动服务
 ```bash
-# 鍚姩鍚庣鏈嶅姟
-./scripts/dev-start.sh backend   # 鎴?.\scripts\dev-start.ps1 backend
+# 启动后端服务
+./scripts/dev-start.sh backend   # 或 .\scripts\dev-start.ps1 backend
 
-# 鍚姩鍓嶇鏈嶅姟锛堟柊缁堢锛?
-./scripts/dev-start.sh frontend  # 鎴?.\scripts\dev-start.ps1 frontend
+# 启动前端服务（新终端）
+./scripts/dev-start.sh frontend  # 或 .\scripts\dev-start.ps1 frontend
 ```
 
-#### 鎵嬪姩鐜閰嶇疆
-濡傛灉鎮ㄥ枩娆㈡墜鍔ㄦ帶鍒讹紝璇峰弬鑰?[鏈湴寮€鍙戠幆澧冭缃寚鍗梋(docs/development-setup.md)
+#### 手动环境配置
+如果您喜欢手动控制，请参考[本地开发环境设置指南](docs/development-setup.md)
 
-### 榛樿璐︽埛
-- **绠＄悊鍛?*: `admin` / `admin123`
-- **娴嬭瘯鐢ㄦ埛**: `demo` / `demo123`
+### 默认账户
+- **管理员**: `admin` / `admin123`
+- **测试用户**: `demo` / `demo123`
 
-### 璁块棶鍦板潃
-- 鍓嶇搴旂敤: http://localhost:3000
-- 鍚庣API: http://localhost:8000
-- API鏂囨。: http://localhost:8000/api/v1/docs
-- Redis: localhost:6379 (浠匘ocker鏂瑰紡)
+### 访问地址
+- 前端应用: http://localhost:3000
+- 后端API: http://localhost:8000
+- API文档: http://localhost:8000/api/v1/docs
+- Redis: localhost:6379 (仅Docker方式)
 
-## 鎶€鏈爤
+## 技术栈
 
-### 鍓嶇
+### 前端
 - React 18 + TypeScript
-- Ant Design UI缁勪欢搴?
-- React Router v6 璺敱绠＄悊
-- Axios HTTP瀹㈡埛绔?
-- ECharts 鏁版嵁鍙鍖?
-- i18next 鍥介檯鍖?
+- Ant Design UI组件库
+- React Router v6 路由管理
+- Axios HTTP客户端
+- ECharts 数据可视化
+- i18next 国际化
 
-### 鍚庣
+### 后端
 - Python 3.11 + FastAPI
 - SQLAlchemy ORM
-- SQLite 鏁版嵁搴?
-- 澶歀LM闆嗘垚 (OpenAI, Claude, Gemini, Qwen, DeepSeek)
-- Redis 缂撳瓨
+- SQLite 数据库
+- 多LLM集成 (OpenAI, Claude, Gemini, Qwen, DeepSeek)
+- Redis 缓存
 
-### 閮ㄧ讲
+### 部署
 - Docker + Docker Compose
-- Nginx 鍙嶅悜浠ｇ悊
+- Nginx 反向代理
 
-## 椤圭洰缁撴瀯
+## 项目结构
 
 ```
 SimSynAI/
-鈹溾攢鈹€ frontend/          # React鍓嶇搴旂敤
-鈹?  鈹溾攢鈹€ src/
-鈹?  鈹?  鈹溾攢鈹€ components/    # React缁勪欢
-鈹?  鈹?  鈹溾攢鈹€ locales/       # 鍥介檯鍖栨枃浠?
-鈹?  鈹?  鈹斺攢鈹€ styles/        # 鏍峰紡鏂囦欢
-鈹?  鈹斺攢鈹€ public/            # 闈欐€佽祫婧?
-鈹溾攢鈹€ backend/           # FastAPI鍚庣
-鈹?  鈹溾攢鈹€ app/
-鈹?  鈹?  鈹溾攢鈹€ api/           # API璺敱
-鈹?  鈹?  鈹溾攢鈹€ core/          # 鏍稿績閰嶇疆
-鈹?  鈹?  鈹溾攢鈹€ db/            # 鏁版嵁搴撴ā鍨?
-鈹?  鈹?  鈹溾攢鈹€ llm/           # LLM闆嗘垚
-鈹?  鈹?  鈹溾攢鈹€ services/      # 涓氬姟閫昏緫
-鈹?  鈹?  鈹斺攢鈹€ simulation/    # 浠跨湡寮曟搸
-鈹?  鈹斺攢鈹€ tests/             # 娴嬭瘯鏂囦欢
-鈹溾攢鈹€ data/              # 鏁版嵁瀛樺偍
-鈹斺攢鈹€ docker-compose.yml # Docker閰嶇疆
+├── frontend/          # React前端应用
+│  ├── src/
+│  │  ├── components/    # React组件
+│  │  ├── locales/       # 国际化文件
+│  │  └── styles/        # 样式文件
+│  └── public/            # 静态资源
+├── backend/           # FastAPI后端
+│  ├── app/
+│  │  ├── api/           # API路由
+│  │  ├── core/          # 核心配置
+│  │  ├── db/            # 数据库模型
+│  │  ├── llm/           # LLM集成
+│  │  ├── services/      # 业务逻辑
+│  │  └── simulation/    # 仿真引擎
+│  └── tests/             # 测试文件
+├── data/              # 数据存储
+└── docker-compose.yml # Docker配置
 ```
 
-## 涓昏鍔熻兘
+## 主要功能
 
-### 1. 鐢ㄦ埛璁よ瘉
-- 鐢ㄦ埛娉ㄥ唽/鐧诲綍
-- JWT浠ょ墝璁よ瘉
-- 鐢ㄦ埛璧勬枡绠＄悊
+### 1. 用户认证
+- 用户注册/登录
+- JWT令牌认证
+- 用户资料管理
 
-### 2. 鏅鸿兘瀵硅瘽
-- 澶歀LM妯″瀷鏀寔
-- 瀹炴椂娑堟伅閫氫俊
-- 瀵硅瘽鍘嗗彶绠＄悊
+### 2. 智能对话
+- 多LLM模型支持
+- 实时消息通信
+- 对话历史管理
 
-### 3. 浠跨湡寤烘ā
-- 鍙鍖栧缓妯＄晫闈?
-- 鍙傛暟閰嶇疆绠＄悊
-- 浠跨湡缁撴灉鍒嗘瀽
+### 3. 仿真建模
+- 可视化建模界面
+- 参数配置管理
+- 仿真结果分析
 
-### 4. 鏁版嵁鍙鍖?
-- 澶氱鍥捐〃绫诲瀷
-- 瀹炴椂鏁版嵁鏇存柊
-- 浜や簰寮忓浘琛?
+### 4. 数据可视化
+- 多种图表类型
+- 实时数据更新
+- 交互式图表
 
-### 5. 鍥介檯鍖?
-- 涓嫳鏂囧垏鎹?
-- 鏈湴鍖栭厤缃?
+### 5. 国际化
+- 中英文切换
+- 本地化配置
 
-## 寮€鍙戣鏄?
+## 开发说明
 
-### 鐜鍙橀噺閰嶇疆
+### 环境变量配置
 
-鍦?`docker-compose.yml` 涓厤缃互涓嬬幆澧冨彉閲忥細
+在`docker-compose.yml` 中配置以下环境变量：
 
 ```yaml
 # LLM API Keys
@@ -176,44 +176,36 @@ GOOGLE_API_KEY=your_google_key
 QWEN_API_KEY=your_qwen_key
 DEEPSEEK_API_KEY=your_deepseek_key
 
-# 鏁版嵁搴?
+# 数据库
 DATABASE_URL=sqlite:///./app.db
 
 # Redis
 REDIS_PASSWORD=simsynai
 
-# 瀹夊叏
+# 安全
 SECRET_KEY=your_secret_key
 ```
 
-### 鏃ュ織鍜屾暟鎹?
+### 日志和数据
 
-椤圭洰鏁版嵁瀛樺偍鍦ㄤ互涓嬬洰褰曪細
-- `./data/logs/` - 搴旂敤鏃ュ織
-- `./data/simulation_results/` - 浠跨湡缁撴灉
+项目数据存储在以下目录：
+- `./data/logs/` - 应用日志
+- `./data/simulation_results/` - 仿真结果
 
-### 鍋滄鏈嶅姟
+### 停止服务
 
 ```bash
 docker compose down
 ```
 
-### 閲嶅缓鏈嶅姟
+## 贡献指南
 
-```bash
-docker compose down
-docker compose build --no-cache
-docker compose up -d
-```
+1. Fork 项目
+2. 创建分支(`git checkout -b feature/AmazingFeature`)
+3. 提交修改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 打开 Pull Request
 
-## 璐＄尞鎸囧崡
+## 许可证
 
-1. Fork 椤圭洰
-2. 鍒涘缓鐗规€у垎鏀?(`git checkout -b feature/AmazingFeature`)
-3. 鎻愪氦鏇存敼 (`git commit -m 'Add some AmazingFeature'`)
-4. 鎺ㄩ€佸埌鍒嗘敮 (`git push origin feature/AmazingFeature`)
-5. 鎵撳紑 Pull Request
-
-## 璁稿彲璇?
-
-鏈」鐩噰鐢?MIT 璁稿彲璇併€傝缁嗕俊鎭鍙傞槄 LICENSE 鏂囦欢銆?
+根据 MIT 许可证进行分发和使用，详情请参阅 LICENSE 文件。
