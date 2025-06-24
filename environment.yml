@@ -1,0 +1,49 @@
+name: simsynai
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # Python版本
+  - python=3.11
+  
+  # 后端依赖
+  - fastapi
+  - uvicorn[standard]
+  - sqlalchemy
+  - alembic
+  - pydantic
+  - pydantic-settings
+  - python-jose[cryptography]
+  - passlib[bcrypt]
+  - python-multipart
+  - pytest
+  - pytest-cov
+  - requests
+  - redis-py
+  - cryptography
+  
+  # 开发工具
+  - black
+  - isort
+  - flake8
+  - mypy
+  - pre-commit
+  
+  # 数据科学和AI库（如果需要）
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - jupyter
+  - ipykernel
+  
+  # 通用工具
+  - pip
+  
+  # 通过pip安装的包
+  - pip:
+    - openai
+    - anthropic
+    - google-generativeai
+    - dashscope  # 阿里云千问
+    - httpx 

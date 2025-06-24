@@ -1,0 +1,132 @@
+# SimSynAI - 智能化仿真平台
+# 
+# 快速启动:
+#   docker compose up -d
+#
+# 停止服务:
+#   docker compose down
+#
+# 重建服务:
+#   docker compose down
+#   docker compose build --no-cache
+#   docker compose up -d
+#
+# 访问地址:
+#   前端: http://localhost:3000
+#   后端: http://localhost:8000
+#   Redis: localhost:6379
+
+name: simsynai
+
+# 定义环境变量
+x-environment: &environment
+  VERSION: ${VERSION:-1.0.0}  # 默认版本号为1.0.0
+  REGISTRY: ${REGISTRY:-localhost}  # 默认镜像仓库地址
+  BUILD_DATE: ${BUILD_DATE:-$(date +%s)}  # 使用当前时间戳作为构建日期
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      args:
+        - VERSION=${VERSION:-1.0.0}
+        - BUILD_DATE=${BUILD_DATE:-$(date +%s)}
+      no_cache: ${NO_CACHE:-false}
+    image: simsynai-backend:latest
+    container_name: simsynai-backend
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./data/simulation_results:/app/simulation_results
+      - ./data/logs:/app/logs
+    environment:
+      - PROJECT_NAME=SimSynAI
+      - SECRET_KEY=${SECRET_KEY:-docker_test_secret_key_replace_in_production}
+      - API_V1_STR=/api/v1
+      - DATABASE_URL=${DATABASE_URL:-sqlite:///./app.db}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-sk-test}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-test}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY:-test}
+      - QWEN_API_KEY=${QWEN_API_KEY:-test}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-test}
+      - BACKEND_CORS_ORIGINS=["http://localhost:3000","http://localhost:8000","http://frontend:80"]
+      - SKYEYE_PATH=/usr/local/bin/skyeye
+      - SKYEYE_MODELS_DIR=/app/models
+      - BUILD_DATE=${BUILD_DATE:-$(date +%s)}
+      - DEBUG=${DEBUG:-false}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - MAX_WORKERS=${MAX_WORKERS:-4}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    networks:
+      - simsynai-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VERSION=${VERSION:-1.0.0}
+        - BUILD_DATE=${BUILD_DATE:-$(date +%s)}
+        - NODE_ENV=${NODE_ENV:-production}
+      no_cache: ${NO_CACHE:-false}
+    image: simsynai-frontend:latest
+    container_name: simsynai-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=/api/v1
+      - BUILD_DATE=${BUILD_DATE:-$(date +%s)}
+      - NODE_ENV=${NODE_ENV:-production}
+      - REACT_APP_BUILD_DATE=${BUILD_DATE:-$(date +%s)}
+      - GENERATE_SOURCEMAP=${GENERATE_SOURCEMAP:-false}
+      - DISABLE_ESLINT_PLUGIN=true
+      - TSC_COMPILE_ON_ERROR=true
+      - CI=false
+      - REACT_APP_VERSION=${VERSION:-1.0.0}
+      - REACT_APP_DEFAULT_LOCALE=${DEFAULT_LOCALE:-zh}
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:80/health.html"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    networks:
+      - simsynai-network
+
+  redis:
+    image: redis:7.0-alpine
+    container_name: simsynai-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-simsynai}
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD:-simsynai}", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - simsynai-network
+
+volumes:
+  redis-data:
+    name: simsynai-redis-data
+
+networks:
+  simsynai-network:
+    driver: bridge
+    name: simsynai-network
