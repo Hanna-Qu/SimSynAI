@@ -209,3 +209,20 @@ docker compose down
 ## 许可证
 
 根据 MIT 许可证进行分发和使用，详情请参阅 LICENSE 文件。
+
+## 联系方式
+
+- 项目链接: [https://github.com/Hanna-Qu/SimSynAI](https://github.com/Hanna-Qu/SimSynAI)
+- 问题反馈: [https://github.com/Hanna-Qu/SimSynAI/issues](https://github.com/Hanna-Qu/SimSynAI/issues)
+
+## 致谢
+
+- [React](https://reactjs.org/) - 前端框架
+- [FastAPI](https://fastapi.tiangolo.com/) - 后端框架
+- [Docker](https://www.docker.com/) - 容器化平台
+- [Ant Design](https://ant.design/) - UI组件库
+- [ECharts](https://echarts.apache.org/) - 数据可视化库
+
+---
+
+**中文文档** | **[English Documentation](README_EN.md)**
