@@ -1,4 +1,4 @@
-﻿# SimSynAI - 基于大语言模型的智能化仿真平台
+# SimSynAI - AI-Powered Intelligent Simulation Platform
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI/CD](https://github.com/Hanna-Qu/SimSynAI/workflows/CI/CD%20Pipeline/badge.svg)](https://github.com/Hanna-Qu/SimSynAI/actions)
@@ -6,55 +6,55 @@
 [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/Hanna-Qu/SimSynAI/releases)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-SimSynAI 是一个集成了多种大语言模型的智能化仿真平台，支持智能对话、仿真建模、数据可视化等功能。
+SimSynAI is an intelligent simulation platform that integrates multiple large language models, supporting intelligent dialogue, simulation modeling, data visualization, and other functions.
 
-## ✨ 主要特性
+## ✨ Key Features
 
-- 🧠 **多LLM模型集成** - 支持OpenAI、Claude、Gemini、千问、DeepSeek等
-- 🔐 **安全的用户系统** - JWT认证、API密钥加密存储
-- 💬 **智能对话** - 实时AI对话、历史记录管理
-- 🧪 **仿真实验** - 可视化建模、参数配置、结果分析
-- 📊 **数据可视化** - 多种图表类型、交互式展示
-- 🌐 **国际化支持** - 中英文双语界面
-- 📱 **响应式设计** - 完美适配桌面和移动设备
-- 🐳 **容器化部署** - 开箱即用的Docker解决方案
+- 🧠 **Multi-LLM Integration** - Support for OpenAI, Claude, Gemini, Qwen, DeepSeek, and more
+- 🔐 **Secure User System** - JWT authentication, encrypted API key storage
+- 💬 **Intelligent Dialogue** - Real-time AI conversations, chat history management
+- 🧪 **Simulation Experiments** - Visual modeling, parameter configuration, result analysis
+- 📊 **Data Visualization** - Multiple chart types, interactive displays
+- 🌐 **Internationalization** - Bilingual interface (Chinese/English)
+- 📱 **Responsive Design** - Perfect adaptation for desktop and mobile devices
+- 🐳 **Containerized Deployment** - Ready-to-use Docker solution
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 环境要求
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (生产部署)
+### Requirements
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (for production deployment)
 - Git
 
-### 方式1：Docker容器化运行（推荐用于生产）
+### Method 1: Docker Containerized Deployment (Recommended for Production)
 
 ```bash
-# 1. 克隆项目
+# 1. Clone the project
 git clone https://github.com/Hanna-Qu/SimSynAI.git
 cd SimSynAI
 
-# 2. 启动所有服务
+# 2. Start all services
 docker compose up -d
 
-# 3. 等待服务启动完成 (约1-2分钟)
+# 3. Wait for services to start (about 1-2 minutes)
 docker compose ps
 
-# 4. 访问应用
-# 前端: http://localhost:3000
-# 后端API: http://localhost:8000
-# API文档: http://localhost:8000/api/v1/docs
+# 4. Access the application
+# Frontend: http://localhost:3000
+# Backend API: http://localhost:8000
+# API Documentation: http://localhost:8000/api/v1/docs
 ```
 
-### 方式2：本地开发环境（推荐用于开发）
+### Method 2: Local Development Environment (Recommended for Development)
 
-使用conda虚拟环境进行本地开发，获得更好的开发体验：
+Use conda virtual environment for local development to get a better development experience:
 
-#### 快速启动
+#### Quick Start
 ```bash
-# 1. 克隆项目
+# 1. Clone the project
 git clone https://github.com/Hanna-Qu/SimSynAI.git
 cd SimSynAI
 
-# 2. 初始化开发环境（首次运行）
+# 2. Initialize development environment (first run)
 # Windows
 .\scripts\dev-start.ps1 init
 
@@ -62,7 +62,7 @@ cd SimSynAI
 chmod +x scripts/dev-start.sh
 ./scripts/dev-start.sh init
 
-# 3. 启动开发服务
+# 3. Start development services
 # Windows
 .\scripts\dev-start.ps1 full
 
@@ -70,103 +70,103 @@ chmod +x scripts/dev-start.sh
 ./scripts/dev-start.sh full
 ```
 
-#### 分别启动服务
+#### Start Services Separately
 ```bash
-# 启动后端服务
-./scripts/dev-start.sh backend   # 或 .\scripts\dev-start.ps1 backend
+# Start backend service
+./scripts/dev-start.sh backend   # or .\scripts\dev-start.ps1 backend
 
-# 启动前端服务（新终端）
-./scripts/dev-start.sh frontend  # 或 .\scripts\dev-start.ps1 frontend
+# Start frontend service (new terminal)
+./scripts/dev-start.sh frontend  # or .\scripts\dev-start.ps1 frontend
 ```
 
-#### 手动环境配置
-如果您喜欢手动控制，请参考[本地开发环境设置指南](docs/development-setup.md)
+#### Manual Environment Configuration
+If you prefer manual control, please refer to the [Local Development Environment Setup Guide](docs/development-setup.md)
 
-### 默认账户
-- **管理员**: `admin` / `admin123`
-- **测试用户**: `demo` / `demo123`
+### Default Accounts
+- **Administrator**: `admin` / `admin123`
+- **Test User**: `demo` / `demo123`
 
-### 访问地址
-- 前端应用: http://localhost:3000
-- 后端API: http://localhost:8000
-- API文档: http://localhost:8000/api/v1/docs
-- Redis: localhost:6379 (仅Docker方式)
+### Access URLs
+- Frontend Application: http://localhost:3000
+- Backend API: http://localhost:8000
+- API Documentation: http://localhost:8000/api/v1/docs
+- Redis: localhost:6379 (Docker mode only)
 
-## 技术栈
+## Tech Stack
 
-### 前端
+### Frontend
 - React 18 + TypeScript
-- Ant Design UI组件库
-- React Router v6 路由管理
-- Axios HTTP客户端
-- ECharts 数据可视化
-- i18next 国际化
+- Ant Design UI Component Library
+- React Router v6 Route Management
+- Axios HTTP Client
+- ECharts Data Visualization
+- i18next Internationalization
 
-### 后端
+### Backend
 - Python 3.11 + FastAPI
 - SQLAlchemy ORM
-- SQLite 数据库
-- 多LLM集成 (OpenAI, Claude, Gemini, Qwen, DeepSeek)
-- Redis 缓存
+- SQLite Database
+- Multi-LLM Integration (OpenAI, Claude, Gemini, Qwen, DeepSeek)
+- Redis Cache
 
-### 部署
+### Deployment
 - Docker + Docker Compose
-- Nginx 反向代理
+- Nginx Reverse Proxy
 
-## 项目结构
+## Project Structure
 
 ```
 SimSynAI/
-├── frontend/          # React前端应用
+├── frontend/          # React frontend application
 │  ├── src/
-│  │  ├── components/    # React组件
-│  │  ├── locales/       # 国际化文件
-│  │  └── styles/        # 样式文件
-│  └── public/            # 静态资源
-├── backend/           # FastAPI后端
+│  │  ├── components/    # React components
+│  │  ├── locales/       # Internationalization files
+│  │  └── styles/        # Style files
+│  └── public/            # Static resources
+├── backend/           # FastAPI backend
 │  ├── app/
-│  │  ├── api/           # API路由
-│  │  ├── core/          # 核心配置
-│  │  ├── db/            # 数据库模型
-│  │  ├── llm/           # LLM集成
-│  │  ├── services/      # 业务逻辑
-│  │  └── simulation/    # 仿真引擎
-│  └── tests/             # 测试文件
-├── data/              # 数据存储
-└── docker-compose.yml # Docker配置
+│  │  ├── api/           # API routes
+│  │  ├── core/          # Core configuration
+│  │  ├── db/            # Database models
+│  │  ├── llm/           # LLM integration
+│  │  ├── services/      # Business logic
+│  │  └── simulation/    # Simulation engine
+│  └── tests/             # Test files
+├── data/              # Data storage
+└── docker-compose.yml # Docker configuration
 ```
 
-## 主要功能
+## Main Features
 
-### 1. 用户认证
-- 用户注册/登录
-- JWT令牌认证
-- 用户资料管理
+### 1. User Authentication
+- User registration/login
+- JWT token authentication
+- User profile management
 
-### 2. 智能对话
-- 多LLM模型支持
-- 实时消息通信
-- 对话历史管理
+### 2. Intelligent Dialogue
+- Multi-LLM model support
+- Real-time message communication
+- Conversation history management
 
-### 3. 仿真建模
-- 可视化建模界面
-- 参数配置管理
-- 仿真结果分析
+### 3. Simulation Modeling
+- Visual modeling interface
+- Parameter configuration management
+- Simulation result analysis
 
-### 4. 数据可视化
-- 多种图表类型
-- 实时数据更新
-- 交互式图表
+### 4. Data Visualization
+- Multiple chart types
+- Real-time data updates
+- Interactive charts
 
-### 5. 国际化
-- 中英文切换
-- 本地化配置
+### 5. Internationalization
+- Chinese/English switching
+- Localization configuration
 
-## 开发说明
+## Development Guide
 
-### 环境变量配置
+### Environment Variable Configuration
 
-在`docker-compose.yml` 中配置以下环境变量：
+Configure the following environment variables in `docker-compose.yml`:
 
 ```yaml
 # LLM API Keys
@@ -176,53 +176,53 @@ GOOGLE_API_KEY=your_google_key
 QWEN_API_KEY=your_qwen_key
 DEEPSEEK_API_KEY=your_deepseek_key
 
-# 数据库
+# Database
 DATABASE_URL=sqlite:///./app.db
 
 # Redis
 REDIS_PASSWORD=simsynai
 
-# 安全
+# Security
 SECRET_KEY=your_secret_key
 ```
 
-### 日志和数据
+### Logs and Data
 
-项目数据存储在以下目录：
-- `./data/logs/` - 应用日志
-- `./data/simulation_results/` - 仿真结果
+Project data is stored in the following directories:
+- `./data/logs/` - Application logs
+- `./data/simulation_results/` - Simulation results
 
-### 停止服务
+### Stop Services
 
 ```bash
 docker compose down
 ```
 
-## 贡献指南
+## Contributing
 
-1. Fork 项目
-2. 创建分支(`git checkout -b feature/AmazingFeature`)
-3. 提交修改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 打开 Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 许可证
+## License
 
-根据 MIT 许可证进行分发和使用，详情请参阅 LICENSE 文件。
+Distributed under the MIT License. See LICENSE file for more information.
 
-## 联系方式
+## Contact
 
-- 项目链接: [https://github.com/Hanna-Qu/SimSynAI](https://github.com/Hanna-Qu/SimSynAI)
-- 问题反馈: [https://github.com/Hanna-Qu/SimSynAI/issues](https://github.com/Hanna-Qu/SimSynAI/issues)
+- Project Link: [https://github.com/Hanna-Qu/SimSynAI](https://github.com/Hanna-Qu/SimSynAI)
+- Issues: [https://github.com/Hanna-Qu/SimSynAI/issues](https://github.com/Hanna-Qu/SimSynAI/issues)
 
-## 致谢
+## Acknowledgments
 
-- [React](https://reactjs.org/) - 前端框架
-- [FastAPI](https://fastapi.tiangolo.com/) - 后端框架
-- [Docker](https://www.docker.com/) - 容器化平台
-- [Ant Design](https://ant.design/) - UI组件库
-- [ECharts](https://echarts.apache.org/) - 数据可视化库
+- [React](https://reactjs.org/) - Frontend framework
+- [FastAPI](https://fastapi.tiangolo.com/) - Backend framework
+- [Docker](https://www.docker.com/) - Containerization platform
+- [Ant Design](https://ant.design/) - UI component library
+- [ECharts](https://echarts.apache.org/) - Data visualization library
 
 ---
 
-**中文文档** | **[English Documentation](README_EN.md)**
+**English Documentation** | **[中文文档](README_ZH.md)** 
